@@ -1,11 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css'
-import Header from './components/Header'
+import Header from './components/Header.tsx'
+import Feed from './components/Feed.tsx'
+import Agents from './components/Agents.tsx'
+import Settings from './components/Settings.tsx'
 
 
-const FeedPage = () => <div className="content">Feed page</div>;
-const AgentsPage = () => <div className="content">Agents page</div>;
-const SettingsPage = () => <div className="content">Settings page</div>;
+const FeedPage = () => <Feed />;
+const AgentsPage = () => <Agents />;
+const SettingsPage = () => <Settings />;
 
 const App: React.FC = () => {
 
