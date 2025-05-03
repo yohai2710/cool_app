@@ -3,9 +3,9 @@ import './App.css'
 import Header from './components/Header'
 
 
-const FeedPage: React.FC = () => <div className="content">Feed page</div>;
-const AgentsPage: React.FC = () => <div className="content">Agents page</div>;
-const SettingsPage: React.FC = () => <div className="content">Settings page</div>;
+const FeedPage = () => <div className="content">Feed page</div>;
+const AgentsPage = () => <div className="content">Agents page</div>;
+const SettingsPage = () => <div className="content">Settings page</div>;
 
 const App: React.FC = () => {
 
