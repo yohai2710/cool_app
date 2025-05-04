@@ -24,6 +24,16 @@
     resize: vertical;
     margin-bottom: 0.5rem;
   }
+
+  .new-post-input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 0.5rem;
+  }
   
   .new-post-button {
     background-color: #2563eb;

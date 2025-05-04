@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
 import '../CreatePost.css';
+import { Post } from './Feed.tsx';
 
-const CreatePost = () => {
-  const [content, setContent] = useState('');
+type CreatePostProps = {
+  onAddPost: (post: Post) => void;
+};
+
+const CreatePost = ({ onAddPost }: CreatePostProps) => {
+  const [post, setPost] = useState<Post>({ title: '', content: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (content.trim() === '') {
-      alert('Please enter some text before submitting.');
+    if (post.title.trim() === '' || post.content.trim() === '') {
+      alert('Please enter both a title and content before submitting.');
       return;
     }
-    console.log('New post submitted:', content);
-    alert(`Post submitted: ${content}`);
-    setContent('');
+    onAddPost(post);
+    setPost({ title: '', content: '' });
   };
 
   return (
     <div className="new-post">
       <h2>Create New Post</h2>
       <form onSubmit={handleSubmit}>
+        <input
+          className="new-post-input"
+          type="text"
+          value={post.title}
+          onChange={(e) => setPost({ ...post, title: e.target.value })}
+          placeholder="Post title"
+        />
         <textarea
           className="new-post-textarea"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
+          value={post.content}
+          onChange={(e) => setPost({ ...post, content: e.target.value })}
           placeholder="What's on your mind?"
         />
         <button className="new-post-button" type="submit">
