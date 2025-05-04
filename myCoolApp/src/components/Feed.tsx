@@ -22,8 +22,10 @@ const Feed = () => {
 
     return (
         <div className="content">
+            <h2>Welcome Yohai</h2>
+            <p>Add new thought...</p>
             <CreatePost onAddPost={addPost} />
-            <h2>Feed</h2>
+            <p>My AI Feed - See What's New in <strong>Your</strong> World</p>
             <div className="post-list">
                 {postsList.map((post, index) => (
                     <div key={index} className="post">

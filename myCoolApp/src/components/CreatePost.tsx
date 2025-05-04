@@ -21,7 +21,6 @@ const CreatePost = ({ onAddPost }: CreatePostProps) => {
 
   return (
     <div className="new-post">
-      <h2>Create New Post</h2>
       <form onSubmit={handleSubmit}>
         <input
           className="new-post-input"
