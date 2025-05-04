@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import '../CreatePost.css';
-import { Post } from './Feed.tsx';
+import { Post } from './Feed';
 
 type CreatePostProps = {
-  onAddPost: (post: Post) => void;
+  onAddPost: (post: Omit<Post, 'id'>) => void;
 };
 
 const CreatePost = ({ onAddPost }: CreatePostProps) => {
-  const [post, setPost] = useState<Post>({ title: '', content: '' });
+  const [post, setPost] = useState<Omit<Post, 'id'>>({ title: '', content: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +21,7 @@ const CreatePost = ({ onAddPost }: CreatePostProps) => {
 
   return (
     <div className="new-post">
+      <h2>Create New Post</h2>
       <form onSubmit={handleSubmit}>
         <input
           className="new-post-input"

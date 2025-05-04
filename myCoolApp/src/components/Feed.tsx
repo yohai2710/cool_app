@@ -1,23 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
 import CreatePost from './CreatePost.tsx';
+import { supabase } from '../supabaseClient';
 
 export type Post = {
+    id: string;
     title: string;
     content: string;
 };
 
 const Feed = () => {
     const [postsList, setPostsList] = useState<Post[]>([
-        { title: 'Welcome to the Feed', content: 'This is your first demo post!' },
-        { title: 'Second Post', content: 'Here’s another sample post for you.' },
-        { title: 'Third Post', content: 'Enjoy exploring this React feed.' },
-        { title: 'Third Post', content: 'Enjoy exploring this React feed.' },
-        { title: 'Third Post', content: 'Enjoy exploring this React feed.' },
     ]);
 
-    const addPost = (newPost: Post) => {
-        setPostsList([newPost, ...postsList]);
+    const fetchPosts = async () => {
+        const { data, error } = await supabase
+            .from('posts')
+            .select('id, title, content')
+            .order('created_at', { ascending: false });
+        console.log('Fetched data:', data);
+        console.log('Fetch error:', error);
+
+        if (error) {
+            console.error('Error fetching posts:', error);
+        } else {
+            setPostsList(data);
+        }
+    };
+
+    useEffect(() => {
+        fetchPosts();
+    }, []);
+
+    const addPost = async (newPost: Omit<Post, 'id'>) => {
+        const { data, error } = await supabase
+            .from('posts')
+            .insert([{ title: newPost.title, content: newPost.content }])
+            .select();
+    
+        if (error) {
+            console.error('Error adding post:', error);
+        } else if (data && data.length > 0) {
+            setPostsList([data[0], ...postsList]);
+        }
     };
 
     return (
