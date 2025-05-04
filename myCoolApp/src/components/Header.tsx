@@ -1,7 +1,7 @@
 import { Settings } from 'lucide-react';
 import { Activity } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import '../Header.css';
+import './Header.css';
 
 const Header = () => {
 

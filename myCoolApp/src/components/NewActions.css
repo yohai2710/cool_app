@@ -1,0 +1,35 @@
+.new-actions {
+    margin-top: 1rem;
+    color: #374151; /* text-gray-700 */
+}
+
+.new-actions h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem; /* space between buttons */
+    margin: 1rem;
+}
+
+.new-actions .action-button {
+    flex: 1; /* make both buttons take equal width */
+    background: none;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    min-height: 50px;
+}
+
+.new-actions .action-button:hover {
+    background-color: #2563eb;
+    color: white;
+}

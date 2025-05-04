@@ -5,12 +5,22 @@
 }
 
 .content-container {
-  padding-top: 80px; /* push content below sticky header */
+  padding-top: 40px; /* push content below sticky header */
 }
 
 .content {
   padding: 20px;
   font-size: 1.5rem;
+}
+
+.content h2{
+  margin: 0 0 0.5rem 0;
+  font-size: 30px;
+}
+
+.content p {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 24px;
 }
 
 .post-list {

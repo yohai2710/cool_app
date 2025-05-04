@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import '../App.css';
 import CreatePost from './CreatePost.tsx';
+import NewActions from './NewActions.tsx';
+import Title from './Title.tsx'
 import { supabase } from '../supabaseClient';
 
 export type Post = {
@@ -50,7 +52,7 @@ const Feed = () => {
             .from('posts')
             .delete()
             .eq('id', id);
-    
+
         if (error) {
             console.error('Error deleting post:', error);
         } else {
@@ -60,8 +62,8 @@ const Feed = () => {
 
     return (
         <div className="content">
-            <h2>Welcome Yohai</h2>
-            <p>Add new thought...</p>
+            <Title/>
+            <NewActions />
             <CreatePost onAddPost={addPost} />
             <p>My AI Feed - See What's New in <strong>Your</strong> World</p>
             <div className="post-list">

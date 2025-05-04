@@ -10,7 +10,7 @@ const FeedPage = () => <Feed />;
 const AgentsPage = () => <Agents />;
 const SettingsPage = () => <Settings />;
 
-const App: React.FC = () => {
+const App = () => {
 
   return (
     <Router>

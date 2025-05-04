@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../CreatePost.css';
+import './CreatePost.css';
 import { Post } from './Feed';
 
 type CreatePostProps = {

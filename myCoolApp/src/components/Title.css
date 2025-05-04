@@ -1,0 +1,24 @@
+/* If you want to target the gradient text directly */
+.text-gradient {
+    background: linear-gradient(to right, #7e5bef, #f55b8a);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.text-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    color: #1f2937; /* Tailwind's text-gray-800 */
+    margin-bottom: 1rem; /* Tailwind's mb-4 */
+}
+
+.text-main {
+    font-size: 1.875rem; /* Tailwind's text-3xl */
+    font-weight: 600; /* Tailwind's font-semibold */
+    margin-right: 0.5rem; /* Tailwind's mr-2 */
+}
+
+.text-sub {
+    font-size: 1.125rem; /* Tailwind's text-lg */
+}
