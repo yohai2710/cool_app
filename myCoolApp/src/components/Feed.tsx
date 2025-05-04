@@ -37,11 +37,24 @@ const Feed = () => {
             .from('posts')
             .insert([{ title: newPost.title, content: newPost.content }])
             .select();
-    
+
         if (error) {
             console.error('Error adding post:', error);
         } else if (data && data.length > 0) {
             setPostsList([data[0], ...postsList]);
+        }
+    };
+
+    const deletePost = async (id: string) => {
+        const { error } = await supabase
+            .from('posts')
+            .delete()
+            .eq('id', id);
+    
+        if (error) {
+            console.error('Error deleting post:', error);
+        } else {
+            setPostsList(postsList.filter(post => post.id !== id));
         }
     };
 
@@ -56,6 +69,13 @@ const Feed = () => {
                     <div key={index} className="post">
                         <h3>{post.title}</h3>
                         <p>{post.content}</p>
+                        <div className="post-actions">
+                            <div className="left-actions">
+                                <button className="action-button">Like</button>
+                                <button className="action-button">Comment</button>
+                            </div>
+                            <button className="delete-button" onClick={() => deletePost(post.id)}>Remove</button>
+                        </div>
                     </div>
                 ))}
             </div>
